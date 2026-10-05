@@ -1,0 +1,20 @@
+Android Bundling failed 7425ms index.ts (706 modules)
+Unable to resolve "@expo/vector-icons" from "App.tsx"
+  12 | import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
+  13 | import { LinearGradient } from "expo-linear-gradient";
+> 14 | import { Ionicons } from "@expo/vector-icons";
+     |                           ^
+  15 | import * as ImagePicker from "expo-image-picker";
+  16 | import { prepareImage } from "./src/imagePrep";
+  17 | import { countImageWithRetry } from "./src/api";
+
+Import stack:
+
+ App.tsx
+ | import "@expo/vector-icons"
+
+ index.ts
+ | import "./App"
+
+ 
+ | import "./index.ts"

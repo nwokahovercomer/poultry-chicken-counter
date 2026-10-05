@@ -1,0 +1,11 @@
+name = "chicken-count-proxy"
+main = "src/index.js"
+compatibility_date = "2026-09-01"
+
+[vars]
+MODEL_ID = "chicken-counting/5"
+CONFIDENCE = "0.4"
+
+# Secrets are NOT stored here. Set them with:
+#   npx wrangler secret put ROBOFLOW_API_KEY
+#   npx wrangler secret put APP_TOKEN
