@@ -7,8 +7,8 @@
  * to replace it.
  *
  * Flow: live preview -> short countdown to let the user frame the shot ->
- * 3 photos fired automatically ~2.5s apart -> review screen (Use These /
- * Retake All) -> onDone(uris) with exactly 3 photos, or onCancel().
+ * 3 photos fired automatically across ~3.5s total -> review screen (Use
+ * These / Retake All) -> onDone(uris) with exactly 3 photos, or onCancel().
  */
 import React, { useEffect, useRef, useState } from "react";
 import { View, Text, TouchableOpacity, StyleSheet, Image, ActivityIndicator } from "react-native";
@@ -16,8 +16,8 @@ import { CameraView, useCameraPermissions } from "expo-camera";
 import { Ionicons } from "@expo/vector-icons";
 
 const SHOT_COUNT = 3;
-const FRAMING_COUNTDOWN_SECS = 3; // time to let the user position the phone
-const SHOT_INTERVAL_MS = 2500;     // gap between each of the 3 shots
+const FRAMING_COUNTDOWN = 3; // time to let the user position the phone
+const SHOT_INTERVAL_MS = 1750;     // gap between each of the 3 shots (3 shots / 3.5s total)
 
 type Phase = "framing" | "capturing" | "review";
 
@@ -30,7 +30,7 @@ export default function CameraScreen({ onDone, onCancel }: Props) {
   const cameraRef = useRef<CameraView>(null);
   const [permission, requestPermission] = useCameraPermissions();
   const [phase, setPhase] = useState<Phase>("framing");
-  const [countdown, setCountdown] = useState(FRAMING_COUNTDOWN_SECS);
+  const [countdown, setCountdown] = useState(FRAMING_COUNTDOWN);
   const [shotsTaken, setShotsTaken] = useState(0);
   const [photos, setPhotos] = useState<string[]>([]);
 
@@ -75,7 +75,7 @@ export default function CameraScreen({ onDone, onCancel }: Props) {
   function retakeAll() {
     setPhotos([]);
     setShotsTaken(0);
-    setCountdown(FRAMING_COUNTDOWN_SECS);
+    setCountdown(FRAMING_COUNTDOWN);
     setPhase("framing");
   }
 

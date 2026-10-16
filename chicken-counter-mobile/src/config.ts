@@ -3,4 +3,4 @@
 // so the proxy also has size limits, and you should rotate the token if a
 // phone is lost: `npx wrangler secret put APP_TOKEN`, then rebuild the app.
 export const API_URL = "https://chicken-count-proxy.overcomer-nwokah.workers.dev/";
-export const APP_TOKEN = "adlknldKNAKFMLFKLAKF,MDSVVnmcsknvk";
+export const APP_TOKEN = "2r7y8ioqfaklcmnfhnxfjiocjklxfjcjnxIOlkKCJNFJy8ioqfaklcmjfjcjnxIOlF2r7kKCJNFJFiocjklxIWJDSKLSLJBNCMKLXxIOlF2r7kKCJNFJFiocjkl";
